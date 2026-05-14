@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RupeeRipple — Project Brochure</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0f172a;
+    --blue:   #1d4ed8;
+    --sky:    #3b82f6;
+    --teal:   #0d9488;
+    --green:  #16a34a;
+    --orange: #ea580c;
+    --gold:   #d97706;
+    --red:    #dc2626;
+    --slate:  #475569;
+    --light:  #f8fafc;
+    --border: #e2e8f0;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #fff;
+    color: var(--navy);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ─── PAGE BREAKS ─── */
+  .page { width: 210mm; margin: 0 auto; position: relative; overflow: hidden; }
+  .page-break { page-break-after: always; }
+
+  @media print {
+    body { margin: 0; }
+    .page { width: 100%; box-shadow: none !important; }
+    @page { margin: 0; size: A4; }
+  }
+
+  /* ─── HERO PAGE ─── */
+  .hero {
+    min-height: 297mm;
+    background: linear-gradient(145deg, #0f172a 0%, #1e3a5f 55%, #0d9488 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 52px 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(13,148,136,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .logo-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    padding: 8px 18px;
+    width: fit-content;
+    margin-bottom: 56px;
+  }
+  .logo-circle {
+    width: 32px; height: 32px;
+    background: linear-gradient(135deg, #3b82f6, #0d9488);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 13px; color: #fff;
+    letter-spacing: -1px;
+  }
+  .logo-text { font-weight: 700; font-size: 15px; letter-spacing: 0.3px; }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+    color: #7dd3fc; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 52px; font-weight: 900; line-height: 1.08;
+    letter-spacing: -2px; margin-bottom: 20px;
+  }
+  .hero-title span { color: #5eead4; }
+  .hero-sub {
+    font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.75);
+    max-width: 480px; line-height: 1.55; margin-bottom: 48px;
+  }
+
+  /* compound curve SVG area */
+  .hero-chart { margin: 0 0 40px; position: relative; }
+  .chart-label {
+    font-size: 10px; color: rgba(255,255,255,0.5);
+    position: absolute; bottom: -18px; right: 0;
+  }
+
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: auto;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px; padding: 18px 20px;
+  }
+  .stat-num { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+  /* ─── SECTION COMMONS ─── */
+  .section { padding: 48px 56px; }
+  .section-eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 30px; font-weight: 800; letter-spacing: -1px; line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .section-sub {
+    font-size: 14px; color: var(--slate); max-width: 540px; line-height: 1.65;
+    margin-bottom: 36px;
+  }
+  .divider {
+    height: 1px; background: var(--border); margin: 0 56px;
+  }
+
+  /* ─── PROBLEM PAGE ─── */
+  .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .problem-card {
+    background: var(--light); border-radius: 14px; padding: 22px 24px;
+    border: 1px solid var(--border);
+  }
+  .problem-card .icon { font-size: 28px; margin-bottom: 10px; }
+  .problem-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .problem-card p { font-size: 13px; color: var(--slate); line-height: 1.6; }
+
+  .callout {
+    background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+    border: 1px solid #bfdbfe; border-radius: 14px; padding: 24px 28px;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .callout-big { font-size: 38px; font-weight: 900; color: var(--blue); letter-spacing: -2px; }
+  .callout-text { font-size: 13px; color: var(--slate); line-height: 1.65; }
+  .callout-text strong { color: var(--navy); }
+
+  /* ─── HOW IT WORKS ─── */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: var(--blue); color: #fff;
+    font-weight: 800; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+  .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .step p { font-size: 13px; color: var(--slate); line-height: 1.6; }
+  .step .tag {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    background: #dbeafe; color: var(--blue); border-radius: 4px;
+    padding: 2px 7px; margin-left: 8px; vertical-align: middle;
+  }
+
+  /* ─── MECHANICS ─── */
+  .mech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .mech-card {
+    border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px;
+    position: relative; overflow: hidden;
+  }
+  .mech-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .mech-card.blue::before  { background: var(--blue); }
+  .mech-card.teal::before  { background: var(--teal); }
+  .mech-card.green::before { background: var(--green); }
+  .mech-card.gold::before  { background: var(--gold); }
+  .mech-card.orange::before { background: var(--orange); }
+  .mech-card.red::before    { background: var(--red); }
+
+  .mech-icon { font-size: 26px; margin-bottom: 10px; }
+  .mech-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .mech-card p { font-size: 12px; color: var(--slate); line-height: 1.6; }
+  .mech-vs {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--orange); text-transform: uppercase; margin-top: 10px; margin-bottom: 4px;
+  }
+  .mech-vs-text { font-size: 11px; color: #94a3b8; line-height: 1.5; font-style: italic; }
+
+  /* ─── AI PAGE ─── */
+  .ai-hero {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
+    border-radius: 16px; padding: 32px; margin-bottom: 24px;
+    color: #fff; display: flex; gap: 28px; align-items: center;
+  }
+  .ai-icon-big { font-size: 56px; }
+  .ai-hero h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .ai-hero p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.65; }
+  .ai-features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .ai-card {
+    border-radius: 14px; padding: 24px;
+    border: 1px solid var(--border);
+  }
+  .ai-card.primary { background: #eff6ff; border-color: #bfdbfe; }
+  .ai-card.secondary { background: #f0fdf4; border-color: #bbf7d0; }
+  .ai-card-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 12px;
+    padding: 3px 10px; border-radius: 20px;
+  }
+  .ai-card.primary .ai-card-tag { background: #dbeafe; color: var(--blue); }
+  .ai-card.secondary .ai-card-tag { background: #dcfce7; color: var(--green); }
+  .ai-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .ai-card p { font-size: 12.5px; color: var(--slate); line-height: 1.65; }
+  .ai-quote {
+    background: rgba(0,0,0,0.04); border-left: 3px solid var(--blue);
+    border-radius: 0 8px 8px 0; padding: 10px 14px; margin-top: 14px;
+    font-size: 12px; color: var(--navy); font-style: italic; line-height: 1.6;
+  }
+  .ai-card.secondary .ai-quote { border-left-color: var(--green); }
+
+  .groq-badge {
+    display: flex; align-items: center; gap: 8px;
+    background: #1c1917; border-radius: 8px; padding: 10px 14px; margin-top: 14px;
+    color: #e7e5e4; font-size: 11px;
+  }
+  .groq-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; }
+
+  /* ─── TECH STACK ─── */
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }
+  .tech-section h3 {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--slate); margin-bottom: 12px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--border);
+  }
+  .tech-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 7px 0; border-bottom: 1px solid #f1f5f9; font-size: 13px;
+  }
+  .tech-row:last-child { border-bottom: none; }
+  .tech-name { font-weight: 600; }
+  .tech-why { font-size: 11px; color: var(--slate); text-align: right; max-width: 180px; }
+
+  .badge {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 4px; margin: 2px;
+  }
+  .badge-blue   { background: #dbeafe; color: var(--blue); }
+  .badge-teal   { background: #ccfbf1; color: #0f766e; }
+  .badge-orange { background: #ffedd5; color: var(--orange); }
+  .badge-green  { background: #dcfce7; color: var(--green); }
+  .badge-purple { background: #ede9fe; color: #6d28d9; }
+
+  /* ─── UNCERTAINTY VISUAL ─── */
+  .band-visual { margin: 24px 0; }
+  .band-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .band-label { font-size: 11px; font-weight: 600; width: 80px; color: var(--slate); }
+  .band-track {
+    flex: 1; height: 20px; background: #f1f5f9; border-radius: 10px;
+    position: relative; overflow: hidden;
+  }
+  .band-fill {
+    position: absolute; top: 3px; bottom: 3px; border-radius: 7px;
+  }
+  .band-median {
+    position: absolute; top: 2px; bottom: 2px; width: 3px; border-radius: 2px;
+    background: #0f172a;
+  }
+  .band-value { font-size: 11px; font-weight: 700; width: 60px; text-align: right; }
+
+  /* ─── ROADMAP ─── */
+  .roadmap { display: flex; flex-direction: column; gap: 16px; }
+  .roadmap-item { display: flex; gap: 16px; }
+  .roadmap-dot-col { display: flex; flex-direction: column; align-items: center; }
+  .roadmap-dot {
+    width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 4px;
+  }
+  .roadmap-line {
+    width: 2px; flex: 1; background: var(--border); margin-top: 4px;
+  }
+  .roadmap-item:last-child .roadmap-line { display: none; }
+  .roadmap-item h4 { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+  .roadmap-item p { font-size: 12px; color: var(--slate); }
+  .done { background: var(--green); }
+  .next { background: var(--blue); }
+  .future { background: var(--border); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy); color: rgba(255,255,255,0.6);
+    padding: 28px 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px;
+  }
+  .footer strong { color: #fff; }
+
+  /* ─── DISCLAIMER PAGE ─── */
+  .disclaimer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .disclaimer-card {
+    background: #fff7ed; border: 1px solid #fed7aa;
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .disclaimer-card h4 { font-size: 12px; font-weight: 700; color: #92400e; margin-bottom: 6px; }
+  .disclaimer-card p { font-size: 11.5px; color: #78350f; line-height: 1.6; }
+
+  /* ─── SENSITIVITY VISUAL ─── */
+  .sens-bar { display: flex; flex-direction: column; gap: 8px; }
+  .sens-row { display: flex; align-items: center; gap: 10px; }
+  .sens-label { font-size: 11px; width: 120px; color: var(--slate); }
+  .sens-track { flex: 1; height: 14px; background: #f1f5f9; border-radius: 7px; overflow: hidden; }
+  .sens-fill { height: 100%; border-radius: 7px; }
+  .sens-pct { font-size: 11px; font-weight: 700; width: 40px; text-align: right; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════ PAGE 1: HERO -->
+<div class="page page-break">
+  <div class="hero">
+    <div class="logo-badge">
+      <div class="logo-circle">RR</div>
+      <span class="logo-text">RupeeRipple</span>
+    </div>
+
+    <div class="hero-eyebrow">India's honest opportunity cost simulator</div>
+    <h1 class="hero-title">
+      Every habit<br>has a <span>hidden</span><br>price tag.
+    </h1>
+    <p class="hero-sub">
+      RupeeRipple runs 500 Monte Carlo simulations to show you
+      the true, probabilistic, 20-year cost of your daily spending habits —
+      in rupees you can actually picture.
+    </p>
+
+    <!-- Compound curve SVG -->
+    <div class="hero-chart">
+      <svg width="520" height="130" viewBox="0 0 520 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- P90 band -->
+        <path d="M0,125 C60,110 120,90 180,70 C240,50 300,30 360,15 C400,6 460,2 520,0 L520,130 L0,130 Z"
+          fill="rgba(94,234,212,0.12)" />
+        <!-- P10 band -->
+        <path d="M0,125 C60,118 120,112 180,102 C240,92 300,80 360,65 C400,55 460,44 520,38 L520,130 L0,130 Z"
+          fill="rgba(15,23,42,0.4)" />
+        <!-- P50 line -->
+        <path d="M0,125 C60,115 120,102 180,86 C240,70 300,54 360,38 C400,28 460,20 520,16"
+          stroke="#5eead4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <!-- P90 line -->
+        <path d="M0,125 C60,110 120,90 180,70 C240,50 300,30 360,15 C400,6 460,2 520,0"
+          stroke="rgba(94,234,212,0.5)" stroke-width="1.5" stroke-dasharray="4,3" fill="none"/>
+        <!-- P10 line -->
+        <path d="M0,125 C60,118 120,112 180,102 C240,92 300,80 360,65 C400,55 460,44 520,38"
+          stroke="rgba(94,234,212,0.3)" stroke-width="1.5" stroke-dasharray="4,3" fill="none"/>
+        <!-- Year markers -->
+        <line x1="0" y1="126" x2="520" y2="126" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="0" y="130" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter">Year 0</text>
+        <text x="240" y="130" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter">Year 10</text>
+        <text x="488" y="130" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter">Year 20</text>
+        <!-- Labels -->
+        <text x="502" y="15" fill="rgba(94,234,212,0.8)" font-size="9" font-family="Inter" text-anchor="end">P90</text>
+        <text x="502" y="20" fill="#5eead4" font-size="9" font-family="Inter" text-anchor="end" dy="8">P50</text>
+        <text x="502" y="42" fill="rgba(94,234,212,0.5)" font-size="9" font-family="Inter" text-anchor="end">P10</text>
+      </svg>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num" style="color:#5eead4;">500+</div>
+        <div class="stat-label">Monte Carlo simulation paths per run</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:#fcd34d;">3</div>
+        <div class="stat-label">Market scenarios — Conservative, Base, Optimistic</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:#86efac;">P10–P90</div>
+        <div class="stat-label">Honest probability range, not a single number</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ PAGE 2: PROBLEM + HOW IT WORKS -->
+<div class="page page-break">
+  <div class="section" style="padding-bottom: 28px;">
+    <div class="section-eyebrow">The Problem</div>
+    <h2 class="section-title">Most apps track spending.<br>None show the real price.</h2>
+    <p class="section-sub">
+      A ₹150 daily coffee feels like nothing. Invested in a balanced portfolio for 20 years
+      at historical Indian market returns, it becomes ₹28–42 lakhs. That's the number no one shows you.
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="icon">🎯</div>
+        <h3>Tracking ≠ Understanding</h3>
+        <p>Budgeting apps tell you what you spent last month. RupeeRipple tells you what that spending costs you over your career — in rupees you can picture.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">📊</div>
+        <h3>Single numbers lie</h3>
+        <p>Most "opportunity cost" calculators give one figure. Markets don't work that way. You get a range — P10, P50, P90 — because honesty matters more than simplicity.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">🇮🇳</div>
+        <h3>India-specific, not generic</h3>
+        <p>July 2024 tax regime. Nifty 50 + gold + FD returns. Sector salary data from EY and WTW surveys. Not a US retirement calculator with a rupee sign slapped on it.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">⚡</div>
+        <h3>3 minutes, not 3 hours</h3>
+        <p>Describe your habits in plain English. The AI parses them. One click runs 1,500 simulation paths across three scenarios. Results in seconds.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div>
+        <div class="callout-big">₹38L</div>
+        <div style="font-size:10px;color:var(--slate);margin-top:2px;">P50 · 20 years · balanced portfolio</div>
+      </div>
+      <div class="callout-text">
+        That's the opportunity cost of a <strong>₹150 daily coffee habit</strong> redirected
+        to a 60% equity / 30% gold / 10% FD portfolio over 20 years at historical Indian market returns —
+        roughly the down payment on a 2BHK flat in Pune, or four years of a private engineering college.
+        <br><br>
+        <strong>Not a prediction. A probability-weighted range.</strong>
+        The P10 is ₹22L (bad markets). The P90 is ₹58L (good markets). RupeeRipple shows you all three.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" style="padding-top: 28px;">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-title">From habit to hard number<br>in three minutes.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Describe your habits <span class="tag">AI-powered</span></h3>
+          <p>Type naturally: <em>"I have chai every morning for ₹30, order Swiggy twice a week at ₹400 each, pay ₹799 for Netflix."</em> The AI extracts name, cost, frequency, and category — no form-filling required.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Set your income profile</h3>
+          <p>Enter your monthly income, age, sector (IT, BFSI, Healthcare, and more), and performance tier. The engine projects your salary trajectory using real industry increment data — not a flat growth assumption.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Choose your portfolio</h3>
+          <p>Pick from presets (Balanced: 60% equity / 30% gold / 10% FD · Aggressive · Conservative) or drag sliders to set custom weights. The engine models all three asset classes with historical Indian return data.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Run simulation <span class="tag">500 paths</span></h3>
+          <p>500 independent market paths run simultaneously across three scenarios (Conservative / Base / Optimistic). Each path uses block bootstrap sampling from 25 years of Nifty, gold, and FD data. Completes in under 2 seconds.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <h3>Read results — simple or technical</h3>
+          <p>The <strong>Simple view</strong> speaks plain English with Indian benchmarks. The <strong>Technical view</strong> shows P10/P25/P50/P75/P90 bands, sensitivity rankings, and full model assumptions. An AI-generated 2-sentence insight anchors the numbers to something real.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ PAGE 3: MECHANICS -->
+<div class="page page-break">
+  <div class="section" style="padding-bottom: 28px;">
+    <div class="section-eyebrow">The Mechanics</div>
+    <h2 class="section-title">How the engine works —<br>and why every choice was deliberate.</h2>
+    <p class="section-sub">
+      Five independent modules. Each documented, each validated with unit tests.
+      No black boxes.
+    </p>
+
+    <div class="mech-grid">
+      <div class="mech-card blue">
+        <div class="mech-icon">📈</div>
+        <h3>Market Returns — Block Bootstrap</h3>
+        <p>Historical monthly returns (Nifty 50, gold MCX, FD rates) are sampled in contiguous <strong>6-month blocks</strong>, not individually. This preserves crash clustering — bad months follow bad months, as they do in reality.</p>
+        <div class="mech-vs">Why not parametric (log-normal)?</div>
+        <div class="mech-vs-text">Assumes returns are independent draws from a normal distribution. Systematically underestimates how bad a bad year actually is. 2008 and March 2020 were not one-month events.</div>
+      </div>
+
+      <div class="mech-card teal">
+        <div class="mech-icon">💼</div>
+        <h3>Income Model — Sector Salary Data</h3>
+        <p>Income grows using <strong>real sector increment data</strong> (EY, WTW, Aon surveys). IT software sector: ~10–11% p.a. BFSI: ~9%. Manufacturing: ~8%. Four performance tiers multiply the sector rate: 0.6× to 1.6×.</p>
+        <div class="mech-vs">Why not flat growth?</div>
+        <div class="mech-vs-text">A flat 8% income growth for an IT top performer and a manufacturing average performer is wildly different in reality. Sector data makes the income trajectory honest.</div>
+      </div>
+
+      <div class="mech-card green">
+        <div class="mech-icon">🏛️</div>
+        <h3>Tax Model — India New Regime, July 2024</h3>
+        <p>Tax is applied <strong>within each simulation path</strong>, not as a post-hoc deduction. LTCG: 12.5% on equity and gold gains. FD interest: taxed at income slab rate. 4% health and education cess on all tax.</p>
+        <div class="mech-vs">Why within-path, not post-hoc?</div>
+        <div class="mech-vs-text">Because compounding and taxation interact. Applying tax after compounding overstates returns — sometimes significantly over 20 years.</div>
+      </div>
+
+      <div class="mech-card gold">
+        <div class="mech-icon">☕</div>
+        <h3>Habit Cost Model — Category Creep</h3>
+        <p>Habits don't cost the same each year. Prices rise, and lifestyle habits inflate with income. <strong>Category-specific creep rates</strong> are applied annually on top of CPI: food delivery +2%, OTT +3%, travel +4%.</p>
+        <div class="mech-vs">Why not flat CPI?</div>
+        <div class="mech-vs-text">Swiggy prices have risen faster than CPI. So have Netflix plans, Uber fares, and restaurant meals. Flat CPI understates the real long-run cost of lifestyle inflation.</div>
+      </div>
+    </div>
+
+    <!-- Sensitivity visual -->
+    <div style="margin-top: 28px; background: var(--light); border-radius: 14px; padding: 22px 24px; border: 1px solid var(--border);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+        <div>
+          <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Sensitivity Analysis — One-at-a-time perturbation</h3>
+          <p style="font-size: 12px; color: var(--slate);">Which lever matters most? After each run, the engine perturbs four variables by a small amount and ranks them by impact on your final P50 portfolio.</p>
+        </div>
+        <div style="font-size: 10px; color: var(--slate); text-align: right; max-width: 160px;">% change in P50 portfolio from a small perturbation</div>
+      </div>
+      <div class="sens-bar">
+        <div class="sens-row">
+          <div class="sens-label">⏳ Time horizon <span style="font-size:9px;">(+5 years)</span></div>
+          <div class="sens-track">
+            <div class="sens-fill" style="width: 100%; background: linear-gradient(90deg, #3b82f6, #0d9488);"></div>
+          </div>
+          <div class="sens-pct" style="color: var(--blue);">+52%</div>
+        </div>
+        <div class="sens-row">
+          <div class="sens-label">💰 Savings rate <span style="font-size:9px;">(+10%)</span></div>
+          <div class="sens-track">
+            <div class="sens-fill" style="width: 68%; background: #3b82f6;"></div>
+          </div>
+          <div class="sens-pct" style="color: var(--blue);">+35%</div>
+        </div>
+        <div class="sens-row">
+          <div class="sens-label">📉 Inflation <span style="font-size:9px;">(+1pp)</span></div>
+          <div class="sens-track">
+            <div class="sens-fill" style="width: 34%; background: #ef4444;"></div>
+          </div>
+          <div class="sens-pct" style="color: var(--red);">–18%</div>
+        </div>
+        <div class="sens-row">
+          <div class="sens-label">☕ Habit cost <span style="font-size:9px;">(+10%)</span></div>
+          <div class="sens-track">
+            <div class="sens-fill" style="width: 22%; background: #f97316;"></div>
+          </div>
+          <div class="sens-pct" style="color: var(--orange);">+12%</div>
+        </div>
+      </div>
+      <p style="font-size: 11px; color: #94a3b8; margin-top: 12px;">
+        The most important insight from the engine: <strong style="color: var(--navy);">staying invested longer matters 4× more than cutting your habits.</strong> The habits still matter — but the ranking is almost always time first, savings rate second.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ PAGE 4: AI FEATURES -->
+<div class="page page-break">
+  <div class="section">
+    <div class="section-eyebrow">Artificial Intelligence</div>
+    <h2 class="section-title">Two AI features that do<br>real work, not demos.</h2>
+
+    <div class="ai-hero">
+      <div class="ai-icon-big">🤖</div>
+      <div>
+        <h2>Powered by Llama 3.1 via Groq</h2>
+        <p>
+          RupeeRipple uses open-source <strong>Llama 3.1 (8B)</strong> served through <strong>Groq's</strong> free inference API —
+          14,400 requests/day, low latency, no credit card required.
+          We chose Groq over Gemini (regional quota limits) and OpenAI (no meaningful free tier)
+          because the AI features should work out of the box, not after a billing setup.
+        </p>
+        <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+          <span class="badge badge-purple">Llama 3.1 8B Instant</span>
+          <span class="badge badge-blue">Temperature 0.1 (parser)</span>
+          <span class="badge badge-green">Temperature 0.4 (narrator)</span>
+          <span class="badge badge-teal">14,400 req/day free</span>
+          <span class="badge badge-orange">~200ms latency</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-features">
+
+      <!-- Parser -->
+      <div class="ai-card primary">
+        <div class="ai-card-tag">✨ Feature 1</div>
+        <h3>Plain-English Habit Parser</h3>
+        <p>
+          Type your habits naturally. The AI extracts structured data — name, rupee cost per occurrence, frequency, category — and shows a selectable checklist. You choose what to add.
+        </p>
+        <div class="ai-quote">
+          "I spend ₹200 on chai every morning and order Swiggy twice a week, around ₹400 each time. I also pay ₹649 for Spotify."
+          <br><br>
+          → <strong>3 habits parsed, pre-filled, ready to simulate.</strong>
+        </div>
+        <div style="margin-top: 14px;">
+          <p style="font-size: 11px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">Why not a rule-based parser?</p>
+          <p style="font-size: 12px; color: var(--slate);">
+            Rules cannot handle <em>"we split Netflix with two friends, my share is roughly ₹133"</em> or <em>"I go to a dhaba maybe 4-5 times a week, ₹80–100 each."</em> The LLM handles vague amounts, division, and irregular phrasing gracefully. A regex would miss them.
+          </p>
+        </div>
+        <div class="groq-badge">
+          <div class="groq-dot"></div>
+          <span><strong style="color:#fff;">Model:</strong> llama-3.1-8b-instant · temp 0.1 · validated JSON output</span>
+        </div>
+      </div>
+
+      <!-- Narrator -->
+      <div class="ai-card secondary">
+        <div class="ai-card-tag">🤖 Feature 2</div>
+        <h3>AI Result Narrator</h3>
+        <p>
+          After each simulation, a 2–3 sentence personalised insight appears — written in plain English, anchored to real Indian benchmarks, specific to your numbers.
+        </p>
+        <div class="ai-quote" style="border-left-color: var(--green);">
+          "Your weekend dining habit (₹6,500/mo) represents 68% of your opportunity cost — redirected to a balanced portfolio, it grows to ₹31L by age 48, roughly the down payment on a 2BHK in Nashik. The single biggest lever isn't your habits though — staying invested five more years moves your portfolio 4× more."
+        </div>
+        <div style="margin-top: 14px;">
+          <p style="font-size: 11px; font-weight: 700; color: var(--navy); margin-bottom: 6px;">Design decisions</p>
+          <p style="font-size: 12px; color: var(--slate);">
+            Fires <strong>asynchronously</strong> — results appear immediately, insight appears 1–2 seconds later. <strong>Never blocks the UI.</strong> If the API fails, the insight card simply doesn't appear; simulation results are unaffected. Anchors to India-specific references: college fees, cars, flat downpayments, retirement corpus.
+          </p>
+        </div>
+        <div class="groq-badge">
+          <div class="groq-dot"></div>
+          <span><strong style="color:#fff;">Model:</strong> llama-3.1-8b-instant · temp 0.4 · max 120 tokens</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Probability bands visual -->
+    <div style="margin-top: 24px; background: var(--light); border-radius: 14px; padding: 22px 24px; border: 1px solid var(--border);">
+      <h3 style="font-size: 13px; font-weight: 700; margin-bottom: 4px;">Why P10 / P50 / P90 instead of one number</h3>
+      <p style="font-size: 12px; color: var(--slate); margin-bottom: 16px;">Each band represents a different market universe. All three are plausible. The range is the honest answer.</p>
+      <div class="band-visual">
+        <div class="band-row">
+          <div class="band-label">P90 — Lucky</div>
+          <div class="band-track">
+            <div class="band-fill" style="left:50%;right:5%;background:rgba(22,163,74,0.25);"></div>
+            <div class="band-median" style="left:72%;background:var(--green);"></div>
+          </div>
+          <div class="band-value" style="color:var(--green);">₹58L</div>
+        </div>
+        <div class="band-row">
+          <div class="band-label">P50 — Median</div>
+          <div class="band-track">
+            <div class="band-fill" style="left:30%;right:25%;background:rgba(59,130,246,0.25);"></div>
+            <div class="band-median" style="left:50%;background:var(--blue);"></div>
+          </div>
+          <div class="band-value" style="color:var(--blue);">₹38L</div>
+        </div>
+        <div class="band-row">
+          <div class="band-label">P10 — Unlucky</div>
+          <div class="band-track">
+            <div class="band-fill" style="left:5%;right:60%;background:rgba(234,88,12,0.2);"></div>
+            <div class="band-median" style="left:25%;background:var(--orange);"></div>
+          </div>
+          <div class="band-value" style="color:var(--orange);">₹22L</div>
+        </div>
+      </div>
+      <p style="font-size: 11px; color: #94a3b8; margin-top: 8px;">Example: ₹150/day coffee habit · 20 years · balanced portfolio (60/30/10). Figures indicative.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ PAGE 5: TECH + ROADMAP -->
+<div class="page page-break">
+  <div class="section" style="padding-bottom: 28px;">
+    <div class="section-eyebrow">Technical Stack</div>
+    <h2 class="section-title">Built to ship fast.<br>Designed to scale.</h2>
+
+    <div class="tech-grid">
+      <div class="tech-section">
+        <h3>Backend</h3>
+        <div class="tech-row">
+          <span class="tech-name">Python 3.12</span>
+          <span class="tech-why">NumPy vectorised simulation</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">FastAPI</span>
+          <span class="tech-why">Pydantic v2 validation, async, OpenAPI</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">NumPy / Pandas</span>
+          <span class="tech-why">500 paths × 240 months in &lt;1 second</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">Uvicorn</span>
+          <span class="tech-why">ASGI server, production-grade</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">Groq SDK</span>
+          <span class="tech-why">Llama 3.1 inference, free tier</span>
+        </div>
+      </div>
+
+      <div class="tech-section">
+        <h3>Frontend</h3>
+        <div class="tech-row">
+          <span class="tech-name">React 18 + TypeScript</span>
+          <span class="tech-why">Component model, type-safe props</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">Vite</span>
+          <span class="tech-why">Fast HMR, native ESM, API proxy</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">Recharts</span>
+          <span class="tech-why">Stacked area band chart, P50 line</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">Tailwind v4</span>
+          <span class="tech-why">Utility-first, zero CSS files</span>
+        </div>
+        <div class="tech-row">
+          <span class="tech-name">Docker + nginx</span>
+          <span class="tech-why">Multi-stage build, /api/ reverse proxy</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap;">
+      <span class="badge badge-blue">FastAPI</span>
+      <span class="badge badge-teal">NumPy Monte Carlo</span>
+      <span class="badge badge-orange">Block Bootstrap</span>
+      <span class="badge badge-green">India Tax 2024</span>
+      <span class="badge badge-purple">Llama 3.1</span>
+      <span class="badge badge-blue">React + TypeScript</span>
+      <span class="badge badge-teal">Recharts</span>
+      <span class="badge badge-orange">Docker</span>
+      <span class="badge badge-green">59 Unit Tests</span>
+      <span class="badge badge-purple">Pydantic v2</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" style="padding-top: 28px; padding-bottom: 28px;">
+    <div class="section-eyebrow">What We're Honest About</div>
+    <h2 class="section-title" style="font-size: 22px; margin-bottom: 16px;">Known limitations — documented in the app.</h2>
+    <div class="disclaimer-grid">
+      <div class="disclaimer-card">
+        <h4>Thin tail sample</h4>
+        <p>25 years of Nifty data is a thin sample for estimating P10/P90. Tail percentiles may be unstable. Disclosed in the assumptions panel.</p>
+      </div>
+      <div class="disclaimer-card">
+        <h4>Tax approximation</h4>
+        <p>Blended effective rate, not lot-by-lot FIFO tracking. Directionally correct; error is disclosed. Does not model 80C/ELSS deductions.</p>
+      </div>
+      <div class="disclaimer-card">
+        <h4>No life events</h4>
+        <p>Marriage, home loan, illness, job loss — none modelled. The simulation assumes you keep investing uninterrupted. Stated clearly on every results page.</p>
+      </div>
+      <div class="disclaimer-card">
+        <h4>Stationary correlations</h4>
+        <p>Equity-gold-FD correlations are assumed constant over the horizon. In crises they change. This is the standard limitation of all bootstrap approaches.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" style="padding-top: 28px;">
+    <div class="section-eyebrow">Roadmap</div>
+    <h2 class="section-title" style="font-size: 22px; margin-bottom: 20px;">What comes next.</h2>
+
+    <div class="roadmap">
+      <div class="roadmap-item">
+        <div class="roadmap-dot-col">
+          <div class="roadmap-dot done"></div>
+          <div class="roadmap-line"></div>
+        </div>
+        <div>
+          <h4>✅ Core simulation engine — done</h4>
+          <p>Monte Carlo, block bootstrap, India tax model, sensitivity analysis. 59 unit tests passing.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot-col">
+          <div class="roadmap-dot done"></div>
+          <div class="roadmap-line"></div>
+        </div>
+        <div>
+          <h4>✅ Full-stack web app — done</h4>
+          <p>FastAPI backend, React frontend, Docker deployment, AI habit parser, AI result narrator.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot-col">
+          <div class="roadmap-dot next"></div>
+          <div class="roadmap-line"></div>
+        </div>
+        <div>
+          <h4>🔵 Integration tests + production deploy — next</h4>
+          <p>API-layer test suite, GitHub Actions CI/CD, Docker Compose on cloud VM.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot-col">
+          <div class="roadmap-dot future"></div>
+          <div class="roadmap-line"></div>
+        </div>
+        <div>
+          <h4>⬜ Goal reverse calculator</h4>
+          <p>User inputs target corpus (e.g. ₹1 Cr by age 50). AI computes which habits to cut and by how much.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot-col">
+          <div class="roadmap-dot future"></div>
+          <div class="roadmap-line"></div>
+        </div>
+        <div>
+          <h4>⬜ PDF scenario report</h4>
+          <p>One-page shareable report for clients or financial advisors. Print-ready from the browser.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-dot-col">
+          <div class="roadmap-dot future"></div>
+        </div>
+        <div>
+          <h4>⬜ NRI / multi-currency mode</h4>
+          <p>USD/AED income with INR habit costs and India portfolio exposure. For the diaspora investing back home.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ FOOTER -->
+<div class="page">
+  <div style="min-height: 80mm; background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 56px; text-align: center; color: #fff;">
+    <div class="logo-circle" style="width: 56px; height: 56px; font-size: 20px; margin: 0 auto 16px;">RR</div>
+    <h2 style="font-size: 36px; font-weight: 900; letter-spacing: -1.5px; margin-bottom: 12px;">RupeeRipple</h2>
+    <p style="font-size: 16px; color: rgba(255,255,255,0.65); max-width: 420px; line-height: 1.6; margin-bottom: 28px;">
+      Every habit has a price. Most people never see it.<br>Now you can.
+    </p>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+      <span class="badge badge-blue" style="font-size: 12px; padding: 4px 12px;">Monte Carlo Simulation</span>
+      <span class="badge badge-teal" style="font-size: 12px; padding: 4px 12px;">India Tax 2024</span>
+      <span class="badge badge-green" style="font-size: 12px; padding: 4px 12px;">AI-Powered</span>
+      <span class="badge badge-purple" style="font-size: 12px; padding: 4px 12px;">Open Source</span>
+    </div>
+  </div>
+  <div class="footer">
+    <div><strong>RupeeRipple</strong> — probabilistic personal finance for India</div>
+    <div>Built with FastAPI · React · NumPy · Llama 3.1 · Groq</div>
+    <div style="color: #475569;">v1.0 · 2025</div>
+  </div>
+</div>
+
+</body>
+</html>

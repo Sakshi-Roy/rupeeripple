@@ -1,0 +1,102 @@
+{
+  "_sources": [
+    "EY Future of Pay 2026 Report (Jan 2026)",
+    "WTW Salary Budget Planning Report India 2025 (Oct 2024)",
+    "Aon Salary Increase Survey India 2025",
+    "Kredily Salary Increment Guide India 2025",
+    "Statista India Salary Increase 2024 (WTW data)"
+  ],
+  "_notes": [
+    "All rates are nominal annual increment percentages",
+    "std_dev estimated from historical variance across survey years 2021-2026",
+    "performance_multipliers from WTW: top=3x, above_avg=1.2x, avg=1.0x, below=0.7x",
+    "career_slowdown_after_age: empirical observation, growth rate halves post this age"
+  ],
+  "sectors": {
+    "gcc": {
+      "name": "GCC / Global Capability Centres",
+      "mean_increment_pct": 10.4,
+      "std_dev_pct": 1.8,
+      "source": "EY Future of Pay 2026",
+      "career_slowdown_after_age": 45
+    },
+    "financial_services": {
+      "name": "Financial Services (Banks/Insurance)",
+      "mean_increment_pct": 10.0,
+      "std_dev_pct": 2.1,
+      "source": "EY Future of Pay 2026",
+      "career_slowdown_after_age": 48
+    },
+    "ecommerce": {
+      "name": "E-Commerce",
+      "mean_increment_pct": 9.9,
+      "std_dev_pct": 2.5,
+      "source": "EY Future of Pay 2026",
+      "career_slowdown_after_age": 42
+    },
+    "pharma": {
+      "name": "Lifesciences / Pharma",
+      "mean_increment_pct": 9.7,
+      "std_dev_pct": 1.5,
+      "source": "EY Future of Pay 2026",
+      "career_slowdown_after_age": 50
+    },
+    "realty_infra": {
+      "name": "Real Estate / Infrastructure",
+      "mean_increment_pct": 10.5,
+      "std_dev_pct": 2.8,
+      "source": "Kredily 2025",
+      "career_slowdown_after_age": 50
+    },
+    "nbfc_banking": {
+      "name": "NBFC / Banking",
+      "mean_increment_pct": 9.8,
+      "std_dev_pct": 1.9,
+      "source": "Kredily 2025",
+      "career_slowdown_after_age": 48
+    },
+    "engineering": {
+      "name": "Engineering Design Services",
+      "mean_increment_pct": 9.6,
+      "std_dev_pct": 1.6,
+      "source": "Kredily 2025",
+      "career_slowdown_after_age": 50
+    },
+    "it_software": {
+      "name": "IT / Software",
+      "mean_increment_pct": 6.5,
+      "std_dev_pct": 2.2,
+      "source": "Kredily 2025 (TCS/Infosys avg 4.5-7%)",
+      "career_slowdown_after_age": 42
+    },
+    "manufacturing": {
+      "name": "Manufacturing",
+      "mean_increment_pct": 10.0,
+      "std_dev_pct": 1.7,
+      "source": "Aon India 2025",
+      "career_slowdown_after_age": 50
+    },
+    "general": {
+      "name": "General / Other",
+      "mean_increment_pct": 9.5,
+      "std_dev_pct": 2.0,
+      "source": "WTW India 2025 median",
+      "career_slowdown_after_age": 48
+    }
+  },
+  "performance_multipliers": {
+    "below_average": 0.7,
+    "average": 1.0,
+    "above_average": 1.2,
+    "top_performer": 3.0
+  },
+  "india_macro": {
+    "cpi_inflation_mean_pct": 6.0,
+    "cpi_inflation_std_pct": 1.5,
+    "cpi_source": "RBI CPI data 2014-2024 average",
+    "job_switch_frequency_years": 3.5,
+    "job_switch_salary_jump_mean_pct": 25.0,
+    "job_switch_salary_jump_std_pct": 8.0,
+    "job_switch_source": "Michael Page India Salary Guide 2024, PageGroup"
+  }
+}

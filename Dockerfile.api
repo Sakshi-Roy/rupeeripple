@@ -1,0 +1,19 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Install dependencies first (better layer caching)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy engine and data (not tests, not frontend)
+COPY engine/ ./engine/
+COPY data/ ./data/
+COPY api/ ./api/
+
+# Pre-generate market_returns.csv so the first request isn't slow
+RUN python -c "from engine.returns import get_sampler; get_sampler(); print('Return sampler ready')"
+
+EXPOSE 8000
+
+CMD ["python", "-m", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]

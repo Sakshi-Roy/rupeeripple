@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+*.local
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data — generated files (auto-created at runtime)
+data/market_returns.csv
+
+# Frontend build output
+frontend/dist/
+frontend/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+*.log
